@@ -1,0 +1,26 @@
+﻿<Window x:Class="prakt1.AddEditSport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prakt1"
+        mc:Ignorable="d"
+        Title="AddEditSport" Height="300" Width="300">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Название:" Margin="0,10,0,0" />
+            <TextBox x:Name="NameSportTextBox"/>
+
+            <TextBlock Text="Единица измерения:" Margin="0,10,0,0" />
+            <TextBox x:Name="UnitSportTextBox" />
+
+            <TextBlock Text="Мировой рекорд:" Margin="0,10,0,0" />
+            <TextBox x:Name="RecordSportTextBox" PreviewTextInput="RecordSportTextBox_PreviewTextInput" />
+
+            <TextBlock Text="Дата рекорда:" Margin="0,10,0,0" />
+            <DatePicker x:Name="SportDatePicker" />
+
+            <Button x:Name="SaveButton" Content="Сохранить" Click="SaveButton_Click" Margin="0,20,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

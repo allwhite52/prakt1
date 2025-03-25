@@ -1,0 +1,29 @@
+﻿<Window x:Class="prakt1.AddEditParticipation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prakt1"
+        mc:Ignorable="d"
+        Title="AddEditParticipation" Height="390" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Код спорта:" Margin="0,10,0,0" />
+            <TextBox x:Name="SportIdParticipationTextBox" PreviewTextInput="SportIdParticipationTextBox_PreviewTextInput"/>
+
+            <TextBlock Text="Код спортсмена:" Margin="0,10,0,0" />
+            <TextBox x:Name="AthleteIdParticipationTextBox" PreviewTextInput="AthleteIdParticipationTextBox_PreviewTextInput"/>
+
+            <TextBlock Text="Код соревнования:" Margin="0,10,0,0" />
+            <TextBox x:Name="CompetitionIdParticipationTextBox" PreviewTextInput="CompetitionIdParticipationTextBox_PreviewTextInput"/>
+
+            <TextBlock Text="Результат:" Margin="0,10,0,0" />
+            <TextBox x:Name="ResultParticipationTextBox" PreviewTextInput="ResultParticipationTextBox_PreviewTextInput"/>
+
+            <TextBlock Text="Место:" Margin="0,10,0,0" />
+            <TextBox x:Name="PlaceParticipationTextBox" PreviewTextInput="PlaceParticipationTextBox_PreviewTextInput"/>
+
+            <Button x:Name="SaveButton" Content="Сохранить" Click="SaveButton_Click" Margin="0,20,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,215 @@
+﻿<Window x:Class="prakt1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prakt1"
+        mc:Ignorable="d"
+            Title="Главное окно" Height="550" Width="1120" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="Спорт" Margin="-2,-2,0,-8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,10,0,10" Width="466">
+                        <Button x:Name="AddButtonSport" Content="Добавить" Click="AddButtonSport_Click" 
+                        Width="100" Height="30" Margin="5" />
+                        <Button x:Name="EditButtonSport" Content="Редактировать" Click="EditButtonSport_Click" 
+                        Width="100" Height="30" Margin="5" />
+                        <Button x:Name="DeleteButtonSport" Content="Удалить" Click="DeleteButtonSport_Click" 
+                        Width="100" Height="30" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="481,388,0,10" Grid.RowSpan="2" Width="490">
+                        <Label Content="Поиск видов спорта:"/>
+                        <TextBox x:Name="SearchSportBox" TextChanged="SearchSportBox_TextChanged"></TextBox>
+                    </StackPanel>
+                    <ListView x:Name="SportView" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="155,0,155,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Код спорта" DisplayMemberBinding="{Binding SportId}" Width="70"/>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding SportName}" Width="130"/>
+                                <GridViewColumn Header="Единица измерения" DisplayMemberBinding="{Binding UnitOfMeasurement}" Width="130"/>
+                                <GridViewColumn Header="Мировой рекорд" DisplayMemberBinding="{Binding WorldRecord}" Width="130"/>
+                                <GridViewColumn Header="Дата рекорда" DisplayMemberBinding="{Binding WorldRecordDate}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Cпортсмены" Margin="-2,9,1,-21">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,10" Width="476">
+                        <Button x:Name="AddButtonAthletes" Content="Добавить" Click="AddButtonAthletes_Click" 
+                        Width="100" Height="30" Margin="5" />
+                        <Button x:Name="EditButtonAthletes" Content="Редактировать" Click="EditButtonAthletes_Click" 
+                        Width="100" Height="30" Margin="5" />
+                        <Button x:Name="DeleteButtonAthletes" Content="Удалить" Click="DeleteButtonAthletes_Click" 
+                        Width="100" Height="30" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="481,5,0,5" Width="490" Grid.Row="1">
+                        <Label Content="Поиск спортсмена:"/>
+                        <TextBox x:Name="SearchAthletesBox" TextChanged="SearchAthletesBox_TextChanged"></TextBox>
+                    </StackPanel>
+                    <ListView x:Name="AthletesView" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="60,0,60,10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Код спортсмена" DisplayMemberBinding="{Binding AthleteId }" Width="100"/>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="130"/>
+                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding MiddleName}" Width="130"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="130"/>
+                                <GridViewColumn Header="Год рождения" DisplayMemberBinding="{Binding BirthYear}" Width="130"/>
+                                <GridViewColumn Header="Команда" DisplayMemberBinding="{Binding Team}" Width="130"/>
+                                <GridViewColumn Header="Разряд" DisplayMemberBinding="{Binding Category}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Соревнования" Margin="-3,22,0,-34">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" Margin="0,10,0,10" Width="466">
+                        <Button x:Name="AddButtonCompetition" Content="Добавить" Click="AddButtonCompetition_Click" 
+            Width="100" Height="30" Margin="5" />
+                        <Button x:Name="EditButtonCompetition" Content="Редактировать" Click="EditButtonCompetition_Click" 
+            Width="100" Height="30" Margin="5" />
+                        <Button x:Name="DeleteButtonCompetition" Content="Удалить" Click="DeleteButtonCompetition_Click" 
+            Width="100" Height="30" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="471,388,0,10" Grid.RowSpan="2" Width="490">
+                        <Label Content="Поиск соревнования:"/>
+                        <TextBox x:Name="SearchCompetitionBox" TextChanged="SearchCompetitionBox_TextChanged"></TextBox>
+                    </StackPanel>
+                    <ListView x:Name="CompetitionView" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="155,0,155,10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Код соревнования" DisplayMemberBinding="{Binding CompetitionId}" Width="100"/>
+                                <GridViewColumn Header="Название" DisplayMemberBinding="{Binding CompetitionName}" Width="160"/>
+                                <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding CompetitionDate}" Width="130"/>
+                                <GridViewColumn Header="Место" DisplayMemberBinding="{Binding SportLocation}" Width="130"/>
+                                <GridViewColumn Header="Код вида спорта" DisplayMemberBinding="{Binding SportId}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Результаты" Margin="-3,36,1,-46">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="10,10,0,10" Width="466">
+                        <Button x:Name="AddButtonParticipation" Content="Добавить" Click="AddButtonParticipation_Click" 
+            Width="100" Height="30" Margin="5" />
+                        <Button x:Name="EditButtonParticipation" Content="Редактировать" Click="EditButtonParticipation_Click" 
+            Width="100" Height="30" Margin="5" />
+                        <Button x:Name="DeleteButtonParticipation" Content="Удалить" Click="DeleteButtonParticipation_Click" 
+            Width="100" Height="30" Margin="5" />
+                    </StackPanel>
+                    <ListView x:Name="ParticipationView" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="164,0,74,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Код результата" DisplayMemberBinding="{Binding ParticipationsId}" Width="100"/>
+                                <GridViewColumn Header="Код спорта" DisplayMemberBinding="{Binding SportId}" Width="130"/>
+                                <GridViewColumn Header="Код спортсмена" DisplayMemberBinding="{Binding AthleteId}" Width="130"/>
+                                <GridViewColumn Header="Код соревнования" DisplayMemberBinding="{Binding CompetitionId}" Width="130"/>
+                                <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}" Width="130"/>
+                                <GridViewColumn Header="Место" DisplayMemberBinding="{Binding Place}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Киев-шахматы" Margin="-3,47,1,-57">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Zapros1View" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="36,0,36,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="130"/>
+                                <GridViewColumn Header="Место" DisplayMemberBinding="{Binding Place}" Width="130"/>
+                                <GridViewColumn Header="Название соревнования" DisplayMemberBinding="{Binding CompetitionName}" Width="150"/>
+                                <GridViewColumn Header="Место проведения" DisplayMemberBinding="{Binding SportLocation}" Width="130"/>
+                                <GridViewColumn Header="Дата проведения" DisplayMemberBinding="{Binding CompetitionDate}" Width="130"/>
+                                <GridViewColumn Header="Вид спорта" DisplayMemberBinding="{Binding SportName}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Больше 3 видов спорта" Margin="-3,59,1,-69">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Zapros2View" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="224,0,224,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding MiddleName}" Width="130"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="130"/>
+                                <GridViewColumn Header="Кол-во видов спорта" DisplayMemberBinding="{Binding SportsCount}" Width="150"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Мировые рекорды" Margin="-2,72,0,-82">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Zapros3View" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="118,0,80,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding MiddleName}" Width="130"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="130"/>
+                                <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}" Width="150"/>
+                                <GridViewColumn Header="Рекорд" DisplayMemberBinding="{Binding WorldRecord}" Width="130"/>
+                                <GridViewColumn Header="Вид спорта" DisplayMemberBinding="{Binding SportName}" Width="130"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Караваев-бег" Margin="-3,85,1,-95">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="Zapros4View" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="224,0,224,0">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="130"/>
+                                <GridViewColumn Header="Лучший результат" DisplayMemberBinding="{Binding BestResult}" Width="130"/>
+                                <GridViewColumn Header="Вид спорта" DisplayMemberBinding="{Binding SportName}" Width="150"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
